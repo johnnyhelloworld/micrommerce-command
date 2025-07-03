@@ -1,10 +1,26 @@
 package com.ecommerce.micrommerce.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "products")
 public class ProductModel {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String name;
     private double price;
 
+    // Constructeur sans arguments requis par JPA
+    public ProductModel() {
+    }
+    
     public ProductModel(int id, String name, double price) {
         this.id = id;
         this.name = name;
