@@ -7,8 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "products")
-public class ProductModel {
+@Table(name = "commands")
+public class CommandModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class ProductModel {
     private double price;
 
     // Constructeur sans arguments requis par JPA
-    public ProductModel() {
+    public CommandModel() {
     }
     
-    public ProductModel(int id, String name, double price) {
+    public CommandModel(int id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -53,7 +53,7 @@ public class ProductModel {
 
     @Override
     public String toString() {
-        return "ProductModel{" +
+        return "CommandModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
