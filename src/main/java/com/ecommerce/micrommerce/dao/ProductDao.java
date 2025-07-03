@@ -7,4 +7,5 @@ public interface ProductDao {
     List<ProductModel> findAll();
     ProductModel findById(int id);
     ProductModel save(ProductModel product);
+    void delete(int id);
 }

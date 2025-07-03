@@ -51,9 +51,10 @@ public class ProductController {
         produitExistant.setName(product.getName());
         produitExistant.setPrice(product.getPrice());
         
-        // Comme nous n'avons pas de méthode update dans le DAO, nous simulons une mise à jour
-        // Dans un cas réel, il faudrait implémenter une méthode update dans le DAO
-        return new ResponseEntity<>(produitExistant, HttpStatus.OK);
+        // Sauvegarde des modifications en utilisant la méthode save() du DAO
+        ProductModel produitMisAJour = productDao.save(produitExistant);
+        
+        return new ResponseEntity<>(produitMisAJour, HttpStatus.OK);
     }
 
     // DELETE - Supprimer un produit
@@ -64,8 +65,9 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         
-        // Comme nous n'avons pas de méthode delete dans le DAO, nous simulons une suppression
-        // Dans un cas réel, il faudrait implémenter une méthode delete dans le DAO
+        // Suppression du produit en utilisant la méthode delete du DAO
+        productDao.delete(id);
+        
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -36,4 +36,9 @@ public class ProductDaoImpl implements ProductDao {
     public ProductModel save(ProductModel product) {
         return productRepository.save(product);
     }
+    
+    @Override
+    public void delete(int id) {
+        productRepository.deleteById(id);
+    }
 }
